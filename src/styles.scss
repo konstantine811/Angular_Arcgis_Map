@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "https://js.arcgis.com/4.20/@arcgis/core/assets/esri/themes/dark/main.css";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.esri-view .esri-view-surface--inset-outline:focus::after {
+  outline: none;
+}
