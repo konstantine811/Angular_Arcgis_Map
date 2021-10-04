@@ -1,0 +1,64 @@
+<form class="form" [formGroup]="fieldForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content class="form__content">
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>Имя поля</mat-label>
+      <input
+        matInput
+        placeholder="32.34.23.24.23.43"
+        formControlName="fieldName"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-error *ngIf="fieldForm.controls['fieldName'].errors?.required">
+        Имя поля обязательно
+      </mat-error>
+      <mat-error *ngIf="fieldForm.controls['fieldName'].errors?.pattern">
+        Имя поля не соответствует паттерну
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>Культура</mat-label>
+      <input
+        matInput
+        placeholder="Кукурудза"
+        formControlName="cropName"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-error *ngIf="fieldForm.controls['cropName'].errors?.required">
+        Имя культуры обязательно
+      </mat-error>
+      <mat-error *ngIf="fieldForm.controls['cropName'].errors?.pattern">
+        Имя культуры не соответствует паттерну
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>Год посева</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="2020"
+        formControlName="harvestYear"
+      />
+      <mat-error *ngIf="fieldForm.controls['harvestYear'].errors?.pattern">
+        Год должен быть в пределах от 1900 до 2099
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions fxLayout="row" fxLayoutAlign="center ">
+    <button
+      disableRipple
+      class="form__close"
+      [mat-dialog-close]="true"
+      mat-icon-button
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+    <button
+      [disabled]="fieldForm.invalid"
+      mat-raised-button
+      type="submit"
+      color="primary"
+    >
+      Отправить
+    </button>
+  </mat-dialog-actions>
+</form>

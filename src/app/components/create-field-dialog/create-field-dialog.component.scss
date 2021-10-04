@@ -1,0 +1,12 @@
+.form {
+  position: relative;
+  &__close {
+    position: absolute;
+    right: -26px;
+    top: -30px;
+    cursor: pointer;
+  }
+  &__content {
+    padding-top: 10px;
+  }
+}
